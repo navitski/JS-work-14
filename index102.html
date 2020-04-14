@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Прототипы и наследование2</title>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	</head>
+	<body>
+	<script>
+	    $(document).ready(function(){
+            // Инициализуруем функции конструктора
+            function Hero(name, level) {
+                this.name = name;
+                this.level = level;
+            }
+            function Warrior(name, level, weapon) {
+                 Hero.call(this, name, level);
+                 this.weapon = weapon;
+            }
+            function Healer(name, level, spell) {
+                 Hero.call(this, name, level);
+                 this.spell = spell;
+            }
+                // Связываем прототипы и методы прототипов
+                Warrior.prototype = Object.create(Hero.prototype);
+                Healer.prototype = Object.create(Hero.prototype);
+                Hero.prototype.greet = function () {
+                    return `${this.name} says hello.`;
+                }
+                Warrior.prototype.attack = function () {
+                    return `${this.name} attacks with the ${this.weapon}.`;
+                }
+                Healer.prototype.heal = function () {
+                    return `${this.name} casts ${this.spell}.`;
+                }
+                Hero.prototype.greet = function() {
+                    return `${this.name} says hello.`;
+                }
+                const hero1 = new Warrior('Batman', 1, 'axe');
+                const hero2 = new Healer('Spiderman', 1, 'cure');
+                alert(hero1.attack());
+                alert(hero2.heal());
+                function Mage(name, level, spell) {
+                    Hero.call(this, name, level);
+                    this.spell = spell;
+                }
+                Mage.prototype = Object.create(Hero.prototype);
+                Mage.prototype.cast = function () {
+                    return `${this.name} casts ${this.spell}.`;
+                }
+                const hero3 = new Mage('Superman', 1, 'eyelaser');
+                alert(hero3.cast());
+                alert(hero1.greet());
+                alert(hero2.greet());
+                alert(hero3.greet());
+            })
+	</script>
+	</body>
+</html>

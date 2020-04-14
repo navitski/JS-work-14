@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            var table = new Array(10);
+            document.write("<table>");
+            for (var row = 1; row < table.length + 1; row++) {
+                document.write("<tr style='height:30px;'>");
+                for (var col = 1; col < table.length + 1; col++) {
+                    document.write("<td style='width:30px;" + table + "'>" + row * col + "</td>");
+                }
+            }
+        </script>
+	</head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Создание классов</title>
+</head>
+<body>
+	<script>
+		class Manager {
+            constructor(name, surname, age, rate, days) {
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+                this.rate = rate;
+                this.days = days;
+            }
+            getName() {
+                return this.name;
+            }
+            setName(value) {
+                this.name = value;
+            }
+            getSurname() {
+                return this.surname;
+            }
+            setSurname(value) {
+                this.surname = value;
+            }
+                getAge() {
+                return this.age;
+            }
+                setAge(value) {
+                    this.age = value;
+            }
+                getRate() {
+                    return this.rate;
+            }
+                setRate(value) {
+                    this.rate = value;
+            }
+                getDays() {
+                    return this.days;
+            }
+                setDays(value) {
+                    this.days = value;
+            }
+                getSalary() {
+                    return this.days * this.rate;
+            }
+       }
+        var manager = new Manager("Дональд", "Трамп", 33, 10, 31);
+		alert(manager.name);
+		alert(manager.surname);
+		alert(manager.age);
+		alert(manager.rate);
+		alert(manager.days);
+		alert(manager.getSalary());
+	</script>
+</body>
+</html>

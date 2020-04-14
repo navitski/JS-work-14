@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Прототипы и наследование3</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+	<body>
+	<script>
+        $(document).ready(function () {
+            class Hero {
+                constructor(name, level) {
+                    this.name = name;
+                    this.level = level;
+                }
+                // Добавляем метод в конструктор
+                greet() {
+                    return `${this.name} says hello.`;
+                }
+            }
+            // Создаем новый класс из родительского
+            class Mage extends Hero {
+                constructor(name, level, spell) {
+                    // Создаем конструктор с использованием super
+                    super(name, level);
+                    // Добавляем новое свойство
+                    this.spell = spell;
+                }
+            }
+            Hero.prototype.greet = function () {
+                return `${this.name} says hello :)`;
+            }
+            Mage.prototype.cast = function () {
+                return `${this.name} ${this.spell} ;-p`;
+            }
+            hero1 = new Mage("Batman", 1, "says goodbye")
+            alert(hero1.greet());
+            alert(hero1.cast());
+        })
+	</script>
+	</body>
+</html>
